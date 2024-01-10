@@ -1,0 +1,105 @@
+{% extends "layout.html" %} 
+{% block title %} AnyCheck Fact Checker {% endblock %}
+
+{% block main %}
+<div class="content-container">
+    <!-- Toggle Button -->
+    <button id="toggleButton" class="toggle-btn">Switch Mode</button>
+
+    <form id="dataForm" action="/solutions" method="POST" style="display: block;"> 
+
+        <h4 class="heading">Today's Premier Fact-Checking Tool</h4>
+        <p class="subheading">Verify the accuracy of your claims using a pre-trained large language model, enhanced with additional training and customizations. You can just say your claim by holding space and AnyCheck will work its magic!</p>
+
+        <div id="controls" class="controls">
+          <button type="button" id="startButton" class="record-btn">Start Recording</button>
+          <button type="button" id="stopButton" class="stop-btn" disabled>Stop Recording</button>
+          <button type="button" id="pauseButton" class="pause-btn" disabled>Pause</button>
+          <!-- <span id="recordingStatus" class="recording-status"></span> -->
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control" id="claim_box" rows="3" name="claim_box" placeholder="Make a claim...">{{ claim }}</textarea>
+        </div>
+
+        <p id="recordingTitle" style="display: none;"><strong>Recording:</strong></p>
+        <ul id="recordingsList"></ul>
+
+        {% if solution %}
+            {% if 'partially false' in solution.lower() %}    
+            <div class="alert-box partial-false-claim">
+                The claim has been identified as partially false.
+            </div>
+            {% elif 'false' in solution.lower() %}
+            <div class="alert-box false-claim">
+                The claim has been identified as false.
+            </div>
+            {% elif 'true' in solution.lower() %}    
+            <div class="alert-box true-claim">
+                The claim has been identified as true.
+            </div>
+            {% endif %}
+
+            <div class="solution-output">
+                {{ solution }}
+            </div>
+        {% endif %}
+
+        <button class="button-40" type="submit">Submit</button>
+    </form>
+
+    <form id="secondForm" action="/essayreview" method="POST" style="display: none;"> 
+
+        <h4 class="heading">Today's Premier Fact-Checking Tool</h4>
+        <p class="subheading">Verify the accuracy of your essay using a pre-trained large language model, enhanced with additional training and customizations. You can just say upload your essay, make any edits you desire, and AnyCheck will work its magic!</p>
+
+        <div id="uploadControls" class="controls">
+          <label for="uploadButton" class="upload-btn">Upload PDF</label>
+          <input type="file" id="uploadButton" accept=".pdf" onchange="handleFileUpload(event)">
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control" id="essay_box" rows="3" name="essay_box" placeholder="Make a claim...">{{ essay }}</textarea>
+        </div>
+
+        <p id="uploadTitle" style="display: none;"><strong>Upload:</strong></p>
+        <ul id="uploadList"></ul>
+
+        {% if accuracy %}
+            {% if accuracy <= 50 %}    
+            <div class="alert-box false-claim">
+                The accuracy of your essay is below or equal to 50%.
+            </div>
+            {% elif accuracy > 50 and accuracy <= 75 %}
+            <div class="alert-box partial-false-claim">
+                The accuracy of your essay is between 51% and 75%.
+            </div>
+            {% elif accuracy > 75 %}    
+            <div class="alert-box true-claim">
+                The accuracy of your essay is above 75%.
+            </div>
+            {% endif %}
+
+            <p id="falseStatementsHeader"><strong>Identified 'False' Statements:</strong></p>
+            <div class="results-output">
+                <ul style="list-style-type: disc;">
+                {% for result in resultsList %}
+                    <li>{{ result }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <button id="essaySubmit" class="button-40" type="submit">Submit</button>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+<script src="static/js/recorder.js"></script>
+<script src="static/js/app.js"></script>
+<script src="static/js/speechrecog.js"></script>
+<script src="static/js/toggle.js"></script>
+<script src="static/js/upload.js"></script>
+<script src="static/js/keyrecord.js"></script>
+
+{% endblock %}
