@@ -1,22 +1,49 @@
 /* CSS */
 .content-container {
-  max-width: 600px;
+  max-width: 70%;
   margin: auto;
   padding: 2rem;
-  background-color: #f9f9f9;
+  background-color: rgba(0, 0, 0, 0.481); /* #f9f9f9; */
+  border: 1px solid rgba(255, 255, 255, 0.595);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 4px rgba(225, 225, 225, 0.1);
+}
+
+.sources-title {
+  margin-bottom: 0.5rem; /* Adjust the space as needed */
+  color: white;
+}
+
+.sources-output {
+  background-color: rgba(0, 0, 0, 0.481); /* #f9f9f9; */
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.source-item {
+  background-color: #e7f6f20a;
+  color: white;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  border-left: 3px solid #38a93c; /* Add a colored border to the left for visual distinction */
+  border-top-right-radius: 1px solid rgba(255, 255, 255, 0.595);
 }
 
 .heading {
   font-size: 1.8rem;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
 .subheading {
   font-size: 1.1rem;
-  color: #555;
+  color: #cdcbcb;
   margin-bottom: 0.5rem; /* Reduced from 2rem to 1rem */
 }
 
@@ -28,52 +55,77 @@
   width: 100%;
   padding: 1rem;
   font-size: 1rem;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
+  border: none;
   border-radius: 4px;
+  background-color: rgba(166, 155, 155, 0.272);
+  color: white;
+}
+
+.form-control:focus {
+  background-color: rgba(166, 155, 155, 0.272);; /* This sets the background to white */
+  color: white; /* This sets the text color to black */
+  /* Other styles may be applied as well */
 }
 
 .solution-output {
-  background-color: #e7f6f2;
+  background-color: #e7f6f20a;
+  border: 1px solid rgba(255, 255, 255, 0.595);
+  color: white;
   padding: 1rem;
   margin-bottom: 2rem;
   border-radius: 4px;
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+  border-top: 0;
 }
 
 .button-40 {
-  background-color: #14b1c9;
+  background-color: #716f6fb3;
+  /* border: 1px solid rgba(255, 255, 255, 0.643); */
+  border: none;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: 700;
-  width: 100%; /* Adjust width as needed */
-  display: inline-block; /* Aligns button correctly */
+  width: 100%;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0.1,0.1,0.1,0.1);
 }
 
 .button-40:hover,
 .button-40:focus {
-  background-color: #1191a8;
-  opacity: 0.9;
-}
+  background-color: #979797b3;
+ }
 
 .alert-box {
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 4px;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  border-bottom: 0;
   color: #fff;
   text-align: center;
   font-weight: bold;
 }
 
 .false-claim {
-  background-color: #ff6b6b; /* Red for false claims */
+  border: 1px solid rgb(167, 32, 32);
+  background-color: rgb(167, 32, 32);
+  color: white;
 }
 
 .partial-false-claim {
-  background-color: rgba(232, 18, 18, 0.558); /* Red for false claims */
+  border: 1px solid rgba(232, 18, 18, 0.558);
+  background-color: rgba(232, 18, 18, 0.558);
+  color: white;
 }
 
 .true-claim {
-  background-color: #1abc9c; /* Green for true claims */
+  border: 1px solid rgba(30, 239, 34, 0.558);
+  background-color: rgba(30, 239, 34, 0.558);
+  color: white;
 }
 
 .partial-true-claim {
@@ -90,33 +142,40 @@
   /* font-weight: bold; */
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0.1,0.1,0.1,0.1);
+  /* border: 0.2px solid rgba(255, 255, 255, 0.643); */
 }
 
 .record-btn {
-  background-color: #28a745; /* Green */
-  color: white;
+  background-color: #393838b3; /* Green */
+  color: #dc3545;
+  border: 0.1px solid #dc3545;
 }
 
 .record-btn:hover {
-  background-color: #218838;
+  background-color: #979797b3;
 }
 
 .stop-btn {
-  background-color: #dc3545; /* Red */
-  color: white;
+  background-color: #393838b3; /* Red */
+  color: #c82333;
+  border: 0.5px solid #c82333;
 }
 
 .stop-btn:hover {
-  background-color: #c82333;
+  background-color: #7d7d7db3;
+  color: #c8233394;
+  border: 0.1px solid #c8233394;
 }
 
 .pause-btn {
-  background-color: rgb(20, 157, 195); /* Red */
-  color: white;
+  background-color: #393838b3; /* Red */
+  color: rgb(20, 157, 195); /* Red */
+  border: 0.1px solid rgb(20, 157, 195);
 }
 
 .pause-btn:hover {
-  background-color: #eaeaea;
+  background-color: #7d7d7db3;
 }
 
 .recording-status {
@@ -128,18 +187,23 @@
 	max-width: 28em;
 }
 
+.filename-text {
+  color: white;
+}
+
 ul {
   list-style: none;
 }
 
 .record-btn:disabled, .stop-btn:disabled, .pause-btn:disabled {
-  background-color: #b8b8b8; /* Gray */
+  background-color: #393838b3; /* Gray */
   color: #ffffff;
   cursor: not-allowed;
+  border: 0.2px solid rgba(255, 255, 255, 0.643);
 }
 
 .toggle-btn {
-  background-color: #38a93c; /* Green background */
+  background-color: rgb(143, 56, 170); /* Green background */
   color: white; /* White text */
   padding: 5px 10px; /* Some padding */
   margin: 10px 0; /* Some margin */
@@ -147,23 +211,21 @@ ul {
   border-radius: 4px; /* Rounded corners */
   cursor: pointer; /* Pointer/hand icon */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
+  box-shadow: 0 2px 4px rgba(0.1,0.1,0.1,0.1);
 }
-
+  
 .toggle-btn:hover {
-  background-color: #45a049; /* Darker shade of green */
+  background-color: rgb(189, 116, 211); /* Darker shade of green */
 }
 
 .upload-btn {
-  background-color: rgb(45, 207, 207); /* Green */
-  color: white;
+  background-color: #393838b3; /* Red */
+  color: rgb(45, 207, 207); /* Green */
+  border: 0.1px solid rgb(20, 157, 195);
 }
 
 .upload-btn:hover {
   background-color: rgb(153, 224, 223); /* Darker shade of green */
-}
-
-#essaySubmit {
-  margin-top: 15px;
 }
 
 #falseStatementsHeader {
@@ -181,7 +243,32 @@ ul {
   display: none;  /* Hide the default file input */
 }
 
+.about-paragraph {
+  color: white;
+}
+
+.about-features {
+  color: white;
+  list-style-type: disc;
+}
+
 /* Existing styles */
 * {
   font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  padding-top: 10%; /* Adjust this value to match the height of your navbar */
+  padding-bottom: 10%;
+}
+
+body {
+  /* background-color: rgba(0, 0, 0, 0.898); */
+  background-image: url('images/3d-white-particle-wave-pattern-on-a-black-background-digital-abstract-background-can-be-applied-for-web-design-website-wallpaper-banner-or-cover-illustration-vector.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0; /* Remove default margin */
+  height: 100%; /* Ensure the body can grow with content */
+  min-height: 100vh; /* Minimum height to fill the viewport */
 }

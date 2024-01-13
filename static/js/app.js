@@ -147,7 +147,7 @@ function createDownloadLink(blob) {
     //save to disk link
     link.href = url;
     link.download = filename+".wav"; //download forces the browser to download the file using the filename
-    link.innerHTML = "Save to disk";
+    link.innerHTML = "Save to Disk";
 
     //add the new audio element to li
     li.appendChild(au);
@@ -159,8 +159,13 @@ function createDownloadLink(blob) {
     //create a div to hold filename and links
     var div = document.createElement('div');
 
-    //add the filename to the div
-    div.appendChild(document.createTextNode(filename+".wav "))
+    // Create a span element to hold the filename
+    var filenameSpan = document.createElement('span');
+    filenameSpan.className = 'filename-text'; // Assign a class name to the span
+    filenameSpan.appendChild(document.createTextNode(filename + ".wav ")); // Add the text node to the span
+
+    // Append the span to the div
+    div.appendChild(filenameSpan);
 
     //add the save to disk link to div
     div.appendChild(link);
