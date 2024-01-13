@@ -228,12 +228,15 @@ ul {
   background-color: rgb(153, 224, 223); /* Darker shade of green */
 }
 
-#falseStatementsHeader {
+.falseStatementsHeader {
   margin-top: 11px;
+  color: white;
 }
 
 .results-output {
-  background-color: #e7f6f2;
+  background-color: #e7f6f20a;
+  border: 1px solid rgba(255, 255, 255, 0.595);
+  color: white;  
   padding: 1rem;
   margin-bottom: 11px;
   border-radius: 4px;

@@ -121,14 +121,18 @@
             </div>
             {% endif %}
 
-            <p id="falseStatementsHeader"><strong>Identified 'False' Statements:</strong></p>
-            <div class="results-output">
-                <ul style="list-style-type: disc;">
-                {% for result in resultsList %}
-                    <li>{{ result }}</li>
-                {% endfor %}
-                </ul>
-            </div>
+            {% if resultsList %}
+                <p class="falseStatementsHeader"><strong>Identified 'False' Statements:</strong></p>
+                <div class="results-output">
+                    <ul style="list-style-type: disc;">
+                        {% for result in resultsList %}
+                            <li>{{ result }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% else %}
+                <p class="falseStatementsHeader">There were no false statements identified in this essay.</p>
+            {% endif %}
         {% endif %}
 
         <button id="essaySubmit" class="button-40" type="submit">Submit</button>
